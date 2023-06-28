@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/main.css">
+  <link type="text/css" rel="stylesheet" href="css/carrinho.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="carrinho.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>Vendinha</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo">Minha Loja</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="carrinho.html"><i class="material-icons">shopping_cart</i></a></li>
+          <li><a href="login.html"><i class="material-icons">person</i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+      <main>
+        <ul id="ul-items" class="collapsible popout">
+            <li>
+              <div class="collapsible-header" tabindex="0">
+                <i class="material-icons">keyboard_arrow_right</i>Itens selecionados<span id="item-price"></span>
+              </div>
+              <div class="collapsible-body" tabindex="=0">
+                <span>
+                  <div class="flex">
+                    <div class="produtos">
+                      <p class="descrição">Itens selecionados: </p>
+                      <p class="descrição">Cadeira de madeira </p>
+                      <p class="descrição"> Valor </p>
+                      <p class="descrição">: R$ 80.00</p>
+                      <p class="qualidade">Quantidade: x1</p>
+                    </div>
+                  </div>
+                  <button onclick="abrirProximaAba(0)" class="waves-effect waves-light btn custom-btn">Próximo</button>  
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header" tabindex="0">
+                <i class="material-icons">keyboard_arrow_right</i>Endereço<span id="item-price"></span>
+              </div>
+              <div class="collapsible-body" tabindex="=0">
+                <span>
+                  <div class="flextext">
+                    <p>Informações de entrega</p>
+                    <div class="row">
+                        <div class="col s6">
+                          <div class="input-field">
+                            <input type="text" id="cep" name="cep" required>
+                            <label for="cep">CEP</label>
+                          </div>
+                        </div>
+                        
+                        <div class="col s6">
+                          <div class="input-field">
+                            <input type="text" id="cidade" name="cidade" readonly>
+                            <label for="cidade">Cidade</label>
+                          </div>
+                        </div>
+                        
+                        <div class="col s6">
+                          <div class="input-field">
+                            <input type="text" id="estado" name="estado" readonly>
+                            <label for="estado">Estado</label>
+                          </div>
+                        </div>
+                        
+                        <div class="col s6">
+                          <div class="input-field">
+                            <input type="text" id="rua" name="rua" readonly>
+                            <label for="rua">Rua</label>
+                          </div>
+                        </div>
+                        
+                        <div class="col s6">
+                          <div class="input-field">
+                            <input type="text" id="numero" name="numero" required>
+                            <label for="numero">Número</label>
+                          </div>
+                        </div>
+                        
+                        <div class="col s6">
+                          <div class="input-field">
+                            <input type="text" id="pontoReferencia" name="pontoReferencia">
+                            <label for="pontoReferencia">Ponto de Referência</label>
+                          </div>
+                        </div>
+                        <button onclick="abrirProximaAba(1)" class="waves-effect waves-light btn">Próximo</button>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </li>
+            <li>
+                <div class="collapsible-header">
+                    <i class="material-icons">keyboard_arrow_right</i>Dados do Cartão de Crédito
+                </div>
+                    <div class="collapsible-body">
+                    <div class="row">
+                        <div class="input-field col s12">
+                        <input id="cardNumber" type="text" class="validate">
+                        <label for="cardNumber">Número do Cartão de Crédito</label>
+                        </div>
+                        <div class="input-field col s12">
+                        <input id="cvv" type="text" class="validate">
+                        <label for="cvv">CVV</label>
+                        </div>
+                        <div class="input-field col s6">
+                        <input id="expiration" type="text" class="validate">
+                        <label for="expiration">Validade (MM/AA)</label>
+                        </div>
+                        <div class="input-field col s6">
+                        <input id="cardHolder" type="text" class="validate">
+                        <label for="cardHolder">Nome do Titular</label>
+                        </div>
+                        <div class="input-field col s12">
+                        <input id="cpf" type="text" class="validate">
+                        <label for="cpf">CPF</label>
+                        </div>
+                    </div>
+                    <a onclick="validarCartao()" class="waves-effect waves-light btn custom-btn">Efetuar compra</a>
+                    <p id="validationResult"></p>
+                </div>
+      </main>
+      <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col s12">
+              <p class="grey-text text-lighten-4">© 2023 Minha Loja. Todos os direitos reservados.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+</body>
+

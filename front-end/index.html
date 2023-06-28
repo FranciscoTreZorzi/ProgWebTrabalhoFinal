@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>Vendinha</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Minha Loja</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="carrinho.html"><i class="material-icons">shopping_cart</i></a></li>
+          <li><a href="login.html"><i class="material-icons">person</i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <div class="input-field">
+            <input type="text" id="nameInput" onkeyup="buscarItens()" placeholder="Digite o termo de busca">
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul id="ul-items itemList" class="collapsible popout">
+      <li class="item">
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Cadeira de Madeira - R$ <span id="item-price">80.00</span>
+        </div>
+        <div class="collapsible-body" tabindex="=0">
+          <span>
+            <img class="materialboxed imagem" src="imagens/cadeirademadeira.jpg">
+            <div class="flextext">
+              <p class="descrição">Descrição:</p>
+              <p class="descrição">Cadeira de madeira<br> Feita à mão por um de nossos especialistas, utilizando máterias
+                de qualidade</p>
+              <p class="descrição">Valor: R$ 80.00</p>
+            </div>
+          </span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Mesa de Centro - R$ <span id="item-price">100.00</span>
+        </div>
+        <div class="collapsible-body" tabindex="0">
+          <span>
+            <img class="materialboxed imagem" src="imagens/mesadecentro.png">
+            <div class="flextext">
+              <p class="descrição">Descrição:</p>
+              <p class="descrição">Mesa de Centro<br> Feita à mão por um de nossos especialistas, utilizando máterias
+                de qualidade</p>
+              <p class="descrição">Valor: R$ 100.00</p>
+            </div>
+          </span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="collapsible-header">
+          <i class="material-icons">keyboard_arrow_right</i>Cadeira de Ferro - Branca - R$ <span id="item-price">140.00</span>
+        </div>
+        <div class="collapsible-body">
+          <span>
+            <img class="materialboxed imagem" src="imagens/cadeiradeferrobranca.jpg">
+            <div class="flextext">
+              <p class="descrição">Descrição:</p>
+              <p class="descrição">Cadeira de Ferro Branca<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                de qualidade</p>
+              <p class="descrição">Valor: R$ 140.00</p>
+            </div>
+          </span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">keyboard_arrow_right</i>Cadeira de Ferro - Preta - R$ <span id="item-price">150.00</span>
+        </div>
+        <div class="collapsible-body" tabindex="=0">
+          <span>
+            <img class="materialboxed imagem" src="imagens/cadeiradeferropreta.jpg">
+            <div class="flextext">
+              <p class="descrição">Descrição:</p>
+              <p class="descrição">Cadeira de Ferro Preta<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                de qualidade</p>
+              <p class="descrição">Valor: R$ 150.00</p>
+            </div>
+          </span>
+        </div>
+      </li>
+        <li class="item">
+          <div class="collapsible-header" tabindex="0">
+            <i class="material-icons">keyboard_arrow_right</i>Mesa de Jantar de Madeira - R$ <span id="item-price">200.00</span>
+          </div>
+          <div class="collapsible-body">
+            <span>
+              <img class="materialboxed imagem" src=" imagens/mesadejantardemadeira.jpg">
+              <div class="flextext">
+                <p class="descrição">Descrição:</p>
+                <p class="descrição">Mesa de Jantar de Madeira<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                  de qualidade</p>
+                <p class="descrição">Valor: R$200.00</p>
+              </div>
+            </span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="collapsible-header" tabindex="0">
+            <i class="material-icons">keyboard_arrow_right</i>Mesa de Jantar de Vidro - R$ <span id="item-price">350.00</span>
+          </div>
+          <div class="collapsible-body">
+            <span>
+              <img class="materialboxed imagem" src="imagens/mesadejantardevidro.jpg">
+              <div class="flextext">
+                <p class="descrição">Descrição:</p>
+                <p class="descrição">Mesa de Jantar de Vidro<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                  de qualidade</p>
+                <p class="descrição">Valor: R$350.00</p>
+              </div>
+            </span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="collapsible-header" tabindex="0">
+            <i class="material-icons">keyboard_arrow_right</i>Mesa de Jantar VIP - R$ <span id="item-price">1000.00</span>
+          </div>
+          <div class="collapsible-body">
+            <span>
+              <img class="materialboxed imagem" src="imagens/mesadejantarVIP.jpg">
+              <div class="flextext">
+                <p class="descrição">Descrição:</p>
+                <p class="descrição">Mesa de Jantar VIP<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                  de qualidade</p>
+                <p class="descrição">Valor: 1000,00R$</p>
+              </div>
+            </span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="collapsible-header" tabindex="0">
+
+            <i class="material-icons">keyboard_arrow_right</i>Cadeira VIP - R$ <span id="item-price">500.00</span>
+          </div>
+          <div class="collapsible-body">
+            <span>
+              <img class="materialboxed imagem" src="imagens/cadeiraVIP.jpg">
+              <div class="flextext">
+                <p class="descrição">Descrição:</p>
+                <p class="descrição">Cadeira VIP<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                  de qualidade</p>
+                <p class="descrição">Valor: 500,00R$</p>
+              </div>
+            </span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="collapsible-header" tabindex="0">
+            <i class="material-icons">keyboard_arrow_right</i>Conjunto Mesa de Jantar VIP - R$ <span id="item-price">3000.00</span>
+          </div>
+          <div class="collapsible-body">
+            <span>
+              <img class="materialboxed imagem" src="imagens/conjuntodemesadejantarVIP.jpg">
+              <div class="flextext">
+                <p class="descrição">Descrição:</p>
+                <p class="descrição">Conjunto Mesa de Jantar VIP<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                  de qualidade</p>
+                <p class="descrição">Valor: R$3000.00</p>
+              </div>
+            </span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="collapsible-header" tabindex="0">
+            <i class="material-icons">keyboard_arrow_right</i>Luminária para mesa de centro - R$ <span id="item-price">50.00</span>
+          </div>
+          <div class="collapsible-body">
+            <span>
+              <img class="materialboxed imagem" src="imagens/luminariademesadecentro.jpeg">
+              <div class="flextext">
+                <p class="descrição">Descrição:</p>
+                <p class="descrição">Luminária para mesa de centro<br> Feita à mão por um de nossos espcialistas, utilizando máterias
+                  de qualidade</p>
+                <p class="descrição">Valor: R$50.00</p>
+              </div>
+            </span>
+          </div>
+        </li>
+    </ul>
+  </main>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <p class="grey-text text-lighten-4">© 2023 Minha Loja. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    (function () {
+
+      document.getElementById("budgetButton").addEventListener('click', () => {
+        let budget = document.getElementById('budgetInput').value;
+
+        const options = {
+          method: 'GET',
+          url: `http://localhost:8080/api/default/${budget}`,
+          headers: { 'Content-Type': 'application/json' }
+        };
+
+        axios.request(options).then(function (response) {
+
+          let itensListUL = document.getElementById('ul-items');
+
+          itensListUL.innerHTML = '';
+          
+          Object.values(response.data).forEach(prod => {
+
+            let li = createLi(prod);
+
+            itensListUL.appendChild(li);
+
+          });
+
+        }).catch(function (error) {
+          console.error(error);
+        });
+      })
+
+
+      function createLi(name) {
+        let li = document.createElement('li');
+
+        let principalDiv = createPrincipalDiv(name);
+
+        let secundaryDiv = createSecondaryDiv(name);
+
+        li.appendChild(principalDiv);
+        li.appendChild(secundaryDiv);
+
+        return li;
+      }
+
+
+      function createPrincipalDiv(name) {
+        let div = document.createElement('div');
+        div.setAttribute('class', 'collapsible-header');
+        let itemValue = getItemValue(name);
+        div.innerHTML = `<i class="material-icons">keyboard_arrow_right</i> ${name} - R$ <span id="item-price">${itemValue}</span>`;
+        return div;
+      }
+
+      function createSecondaryDiv(name) {
+        let div = document.createElement('div');
+        div.setAttribute('class', 'collapsible-body');
+
+        let span = document.createElement('span');
+        span.insertAdjacentHTML('afterbegin', 'Lorem ipsum dolor sit amet.');
+        
+        let imgSrc = getImageSource(name);
+        let itemValue = getItemValue(name);
+
+        div.innerHTML = `
+                        <img class="materialboxed imagem" src="${imgSrc}">
+
+                        <p class="descrição">Descrição:</p> 
+        
+                        <p class="descrição">${name}<br> Feita à mão por um de nossos espcialistas, utilizando máterias de qualidade</p>
+
+                        <p class="descrição">Valor: R$${itemValue},00</p>
+          `
+          div.style.textAlign  = 'center';
+        return div;
+      }
+
+
+      function getImageSource(name){
+        const imageMap ={
+          'Cadeira de Madeira': 'imagens/cadeirademadeira.jpg',
+          'Mesa de Centro': 'imagens/mesadecentro.png',
+          'Cadeira de Ferro - Branca': 'imagens/cadeiradeferrobranca.jpg',
+          'Cadeira de Ferro - Preta': 'imagens/cadeiradeferropreta.jpg',
+          'Mesa de Jantar de Madeira': 'imagens/mesadejantardemadeira.jpg',
+          'Mesa de Jantar de Vidro': 'imagens/mesadejantardevidro.jpg',
+          'Mesa de Jantar VIP': 'imagens/mesadejantarVIP.jpg',
+          'Cadeira VIP': 'imagens/cadeiraVIP.jpg',
+          'Conjunto Mesa de Jantar VIP': 'imagens/conjuntodemesadejantarVIP.jpg',
+          'Luminária para mesa de centro': 'imagens/luminariademesadecentro.jpeg',
+        }
+        if (name in imageMap){
+          return imageMap[name];
+        } else {
+          return 'imagens/default.jpg';
+        }
+      }
+
+      function getItemValue(name){
+        const valueItemMap = {
+          'Cadeira de Madeira': '80',
+          'Mesa de Centro': '100',
+          'Cadeira de Ferro - Branca': '140',
+          'Cadeira de Ferro - Preta': '150',
+          'Mesa de Jantar de Madeira': '200',
+          'Mesa de Jantar de Vidro': '350',
+          'Mesa de Jantar VIP': '1000',
+          'Cadeira VIP': '500',
+          'Conjunto Mesa de Jantar VIP': '3000',
+          'Luminária para mesa de centro': '50',
+        }
+        if (name in valueItemMap){
+          return valueItemMap[name];
+        } else {
+          return '100.00';
+        }
+
+      }
+    })();
+
+  </script>
+</body>
+
+</html>
